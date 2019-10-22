@@ -47,9 +47,8 @@ def autenticar():
     if  'mestra' == request.form['senha']:
         session ['usuario_ogado'] = request.form['usuario']
         flash(request.form['usuario'] + 'logado')
-        proxima_pagina =  request.form['proxima']
+        proxima_pagina = request.form['proxima']
         return redirect('/{}'.format(proxima_pagina))
-        return redirect('/')
     else:
         flash('Não logado, tente de novo!')
         return redirect('/login')
@@ -58,6 +57,6 @@ def autenticar():
 def logout():
     session['usuario_logado'] = None
     flash('None user logado')
-    return redirect ('/')
+    return redirect('/')
 
 app.run(debug = True)
